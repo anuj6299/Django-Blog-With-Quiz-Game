@@ -1,0 +1,261 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block body %}
+<br>
+<div class="container">
+    <div class="alert alert-custom alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Thank You for your response.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+</div>
+
+
+<section class="featured-posts">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-6 col-xs-12 col-lg-4">
+                <div class="featured-slider mr-md-3 mr-lg-3"> 
+                  <div class="item" style="background-image:url({{trending.1.trending_logo}})">
+                        <div class="post-content">
+                            <a href="{% url 'blog:detail' category_id=trending.1.trending_category.category_id %}" class="post-cat bg-primary">{{ trending.1.trending_category }}</a>
+                            <h2 class="slider-post-title">
+                                <a href="article/{{ trending.1.trending_url }}">{{ trending.1.trending_title }}</a>
+                            </h2>
+                           <!-- <div class="post-meta mt-2">
+                                <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{ trending.1.trending_date }}</span>
+                                <span class="post-author">
+                                    <span> by </span>
+                                    <a href="author.html">{{ trending.1.trending_author }}</a>
+                                </span>
+                            </div> -->
+                        </div>
+                    </div>  
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 col-lg-4">
+                 <div class="featured-slider mr-lg-3">
+                    <div class="item" style="background-image:url({{trending.2.trending_logo}})">
+                        <div class="post-content">
+                            <a href="{% url 'blog:detail' category_id=trending.2.trending_category.category_id %}" class="post-cat bg-danger">{{trending.2.trending_category}}</a>
+                            <h2 class="slider-post-title">
+                                <a href="article/{{ trending.1.trending_url }}">{{trending.2.trending_title}}</a>
+                            </h2>
+                         <!--   <div class="post-meta mt-2">
+                                <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.2.trending_date}}</span>
+                                <span class="post-author">
+                                    <span> by </span>
+                                    <a href="author.html">{{trending.2.trending_author}}</a>
+                                </span>
+                            </div>  -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-4">
+                <div class="row mt-3 mt-lg-0">
+                    <div class="col-lg-12 col-xs-12 col-sm-6 col-md-6">
+                        <div class="post-featured-style" style="background-image:url({{trending.3.trending_logo}})">
+                            <div class="post-content">
+                                <a href="{% url 'blog:detail' category_id=trending.3.trending_category.category_id %}" class="post-cat bg-success">{{trending.3.trending_category}}</a>
+                                <h2 class="post-title">
+                                    <a href="article/{{ trending.1.trending_url }}">{{trending.3.trending_title}}</a>
+                                </h2>
+                            <!--    <div class="post-meta mt-2">
+                                    <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.3.trending_date}}</span>
+                                    <span class="post-author">
+                                        <span> by </span>
+                                        <a href="author.html">{{trending.3.trending_author}}</a>
+                                    </span>
+                                </div>  -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-xs-12 col-sm-6 col-md-6">
+                        <div class="post-featured-style" style="background-image:url({{trending.0.trending_logo}})">
+                            <div class="post-content">
+                                <a href="{% url 'blog:detail' category_id=trending.0.trending_category.category_id %}" class="post-cat bg-info">{{trending.0.trending_category}}</a>
+                                <h2 class="post-title">
+                                    <a href="article/{{ trending.1.trending_url }}">{{trending.0.trending_title}}</a>
+                                </h2>
+                              <!--  <div class="post-meta mt-2">
+                                    <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.0.trending_date}}</span>
+                                    <span class="post-author">
+                                        <span> by </span>
+                                        <a href="author.html">{{trending.0.trending_author}}</a>
+                                    </span>
+                                </div>  -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="block-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+				<div class="news-style-one">
+
+    <h3 class="news-title">
+        <span>Editor Picks</span>
+    </h3>
+        			    
+    <div class="all-news">
+        <div class="row">
+
+            {% for editor in all_editor %}
+
+        	<div class="col-lg-6 col-md-6">
+                <div class="post-block-wrapper post-float-half clearfix">
+                    <div class="post-thumbnail">
+                        <a href="article/{{ editor.editor_url }}">
+                            <img class="img-fluid" src="{{editor.editor_logo}}" style="width:500px; height:250px;" alt="post-thumbnail"  />
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <a class="post-category" href="{% url 'blog:category' %}">{{editor.editor_category}}</a>
+                        <h2 class="post-title mt-3">
+                            <a href="article/{{ editor.editor_url }}">{{editor.editor_title}}</a>
+                        </h2>
+                       <!-- <div class="post-meta">
+                            <span class="posted-time">an hour ago</span>
+                            <span class="post-author">by
+                                <a href="author.html">John Snow</a>
+                            </span>
+                        </div>  -->
+                        <p>
+                            {{editor.editor_summary}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+                
+        </div>
+    </div>			
+            </div></div>
+            
+			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+				<div class="sidebar">
+<div class="widget">
+    <h3 class="news-title">
+        <span>Stay in touch</span>
+    </h3>
+
+    <ul class="list-inline social-widget">
+        <li class="list-inline-item">
+             <a href="https://www.facebook.com/mysterioussci/"><img src="{% static 'blog/images/download.png' %}" alt="" height="42" width="42"></a> 
+        </li>
+        <li class="list-inline-item">
+            <a href="https://www.youtube.com/channel/UCGcE1OJ9f0fL4PZBG8KgUyA"><img src="{% static 'blog/images/download1.png' %}" alt="" height="42" width="45"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="https://instagram.com/mysterious.science"><img src="{% static 'blog/images/download2.png' %}" alt="" height="42" width="42"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="https://twitter.com/mysterious.science"><img src="{% static 'blog/images/download3.png' %}" alt="" height="42" width="42"></a>
+        </li>
+         <li class="list-inline-item">
+            <a href="playstore.com"><img src="{% static 'blog/images/download4.png' %}" alt="" height="42" width="42"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="pintrest.com"><img src="{% static 'blog/images/download5.png' %}" alt="" height="42" width="42"></a>
+        </li>
+
+    </ul>
+</div>
+					<div class="widget">
+    <h3 class="news-title">
+        <span>Hot News</span>
+    </h3>
+
+    <div class="post-overlay-wrapper">
+        <div class="post-thumbnail">
+            <img class="img-fluid" src="{{hotnews.0.hotnews_logo}}" style="" alt="post-thumbnail"/>
+        </div>
+        <div class="post-content">
+            <a class="post-category white" href="{% url 'blog:detail' category_id=hotnews.0.hotnews_category.category_id %}">{{ hotnews.0.hotnews_category }}</a>
+            <h2 class="post-title">
+                <a href="{% url 'blog:article' article_id=hotnews.0.hotnews_url %}">{{ hotnews.0.hotnews_title }}</a>
+            </h2>
+            <div class="post-meta white">
+                <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>{{ hotnews.0.hotnews_date }}</span>
+               <!-- <span> by </span>
+                <span class="post-author">
+                    <a href="author.html">Jammy Anderson</a>
+                </span> -->
+            </div>
+        </div>
+    </div> 
+    
+    <div class="post-list-block">
+        {% for news in all_hotnews  %}
+        <div class="post-block-wrapper post-float ">
+            <div class="post-thumbnail">
+                <a href="{% url 'blog:article' article_id=news.hotnews_url %}">
+                    <img class="img-fluid" src="{{news.hotnews_logo}}" style="" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="{% url 'blog:article' article_id=news.hotnews_url %}">{{news.hotnews_title}}</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>{{news.hotnews_date}}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="widget mb-0">
+    <h3 class="news-title">
+        <span>Technology Blog</span>
+    </h3>
+    
+        {% for tech in all_tech  %}
+            <div class="post-overlay-wrapper clearfix mt-3">
+                <div class="post-thumbnail">
+                    <a href="{% url 'blog:article' article_id=tech.tech_url %}">
+                        <img class="img-fluid" src="{{tech.tech_logo}}" style="" alt="post-thumbnail"/>
+                    </a>
+                </div>
+                <div class="post-content">
+                   <!-- <a class="post-category white" href="post-category-2.html">{{tech.tech_category}}</a> -->
+                    <h2 class="post-title">
+                        <a href="{% url 'blog:article' article_id=tech.tech_url %}">{{tech.tech_title}}</a>
+                    </h2>
+                    <div class="post-meta white">
+                        <span class="posted-time">{{tech.tech_date}}</span>
+                       <!-- <span> by </span>
+                        <span class="post-author">
+                            <a href="author.html">{{tech.tech_author}}</a>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    
+</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}

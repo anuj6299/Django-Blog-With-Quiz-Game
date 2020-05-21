@@ -1,0 +1,116 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block body %}
+<br> 
+
+<div class="container">
+<h1 style="text-align: center; font-size: 45px; font-family: 'Russo One', sans-serif; color: rgb(92, 91, 91);" >Select Category</h1> <br>
+</div>
+
+<div class="container">
+    <div class="row">
+    <div class="col-sm">
+     <a href="{% url 'blog:sets' category_name=all_category.0.category_name%}"> 
+       <div class="card-counter astronomy">
+        <i class="fas fa-rocket"></i>
+        <span class="count-numbers">Astronomy</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.1.category_name%}">
+      <div class="card-counter genetics">
+        <i class="fas fa-dna"></i>
+        <span class="count-numbers">Genetics</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.2.category_name%}">
+      <div class="card-counter physics">
+        <i class="fas fa-magnet"></i>
+        <span class="count-numbers">General Physics</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.4.category_name%}">
+      <div class="card-counter mathematics">
+        <i class="fas fa-calculator"></i>
+        <span class="count-numbers">Mathematics</span>
+        <span class="count-name"> </span>
+      </div></a>
+    </div>
+   <!-- <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.5.category_name%}">
+      <div class="card-counter health">
+        <i class="fas fa-heartbeat"></i>
+        <span class="count-numbers">Health</span>
+        <span class="count-name"> </span>
+      </div></a>
+    </div> -->
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.6.category_name%}">
+      <div class="card-counter zoology">
+        <i class="fas fa-spider"></i>
+        <span class="count-numbers">Zoology</span>
+        <span class="count-name"> </span>
+      </div></a>
+    </div>
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.3.category_name%}">
+      <div class="card-counter quantum">
+        <i class="fas fa-atom"></i>
+        <span class="count-numbers">Quantum Physics</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+  <!--  <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.7.category_name%}">
+      <div class="card-counter environment">
+        <i class="fas fa-globe-americas"></i>
+        <span class="count-numbers">Environment</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div> -->
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.8.category_name%}">
+      <div class="card-counter botany">
+        <i class="fas fa-tree"></i>
+        <span class="count-numbers">Botany</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+   <!-- <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.9.category_name%}">
+      <div class="card-counter nanotechnology">
+        <i class="fas fa-microchip"></i>
+        <span class="count-numbers">Nanotechnology</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div> -->
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.10.category_name%}">
+      <div class="card-counter technology">
+        <i class="fas fa-robot"></i>
+        <span class="count-numbers">Technology</span>
+        <span class="count-name"> </span>
+      </div> </a>
+    </div>
+
+    <div class="col-sm">
+    </div>
+    
+
+  </div>
+
+</div>
+
+
+{% endblock %}

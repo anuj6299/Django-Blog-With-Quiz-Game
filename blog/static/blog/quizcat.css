@@ -1,0 +1,125 @@
+.card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    height: 150px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .2s linear all;
+    transform: scale(1.1);
+  }
+
+  .card-counter.set{
+    background-color:     #a6acaf   ;
+    color: #FFF;
+  }
+
+  
+  .card-counter .count-set{
+    font-family: 'Acme', sans-serif;
+    position: absolute;
+    top: 25px;
+    font-size: 35px;
+    display: block;
+  }
+
+  .card-counter.astronomy{
+    background-color:   #3498db  ;
+    color: #FFF;
+  }
+
+  .card-counter.genetics{
+    background-color:  #f5b041 ;
+    color: #FFF;
+  }
+
+  .card-counter.physics{
+    background-color:  #ec7063 ;
+    color: #FFF;
+  }  
+
+  .card-counter.quantum{
+    background-color:  #5d6d7e ;
+    color: #FFF;
+  }  
+
+  .card-counter.mathematics{
+    background-color: #f4d03f ;
+    color: #FFF;
+  }
+  .card-counter.health{
+    background-color:    #af7ac5    ;
+    color: #FFF;
+  }
+
+  .card-counter.zoology{
+    background-color:   #d35400  ;
+    color: #FFF;
+  }
+
+  .card-counter.environment{
+    background-color:  #58d68d ;
+    color: #FFF;
+  }  
+
+  .card-counter.botany{
+    background-color:   #16a085  ;
+    color: #FFF;
+  }  
+
+  .card-counter.nanotechnology{
+    background-color:  #7f8c8d  ;
+    color: #FFF;
+  }
+  
+  .card-counter.technology{
+    background-color:  #c0392b  ;
+    color: #FFF;
+  }
+
+  .card-counter i{
+    position: absolute;
+    font-size: 5em;
+    opacity: 0.2;
+    top: 65px;
+  }
+
+  .card-counter .count-numbers{
+    font-family: 'Acme', sans-serif;
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 75px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+
+  .card-counter .count-date{
+    position: absolute;
+    right: 35px;
+    top: 100px;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 15px;
+  }
+
+  
+
+  .cat{
+    font-family: 'Fredoka One', cursive;
+  }

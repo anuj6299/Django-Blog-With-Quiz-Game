@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block body %}
+<br>
+
+<h1 style="text-align: center; font-size: 45px; font-family: 'Russo One', sans-serif; color: rgb(92, 91, 91);" >Select Set</h1> <br>
+
+<div class="container">
+    <div class="row">
+
+     {% for set in category.sets_set.all reversed %}
+      
+     <div class="col-lg-3 col-md-4">
+     <a href="{% url 'blog:quiz' set_id=set.set_id %}">
+       <div class="card-counter set">
+        <span class="count-set">Set {{ forloop.counter }}</span>
+        <span class="count-name"> Topic: {{ set.set_topic }} </span>
+        <span class="count-date"> {{ set.set_date }} </span>
+      </div>  </a>
+    </div>
+    
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock %}

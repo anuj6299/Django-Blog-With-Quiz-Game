@@ -1,0 +1,210 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block body %}
+<br>
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div class="single-post">
+    <div class="post-header mb-5">
+        <a class="post-category" href="{% url 'blog:detail' category_id=article.category.category_id %}">{{article.category}}</a>
+        <h2 class="post-title" >{{article.article_title}}</h2>
+    </div>
+    <div class="post-body">
+        <div class="post-featured-image">
+            <img src="{{article.article_logo}}" class="img-fluid" alt="featured-image">
+        </div>
+        <div class="entry-content">
+            {{article.article_text|safe|linebreaks}}
+        </div>
+     <!--   <div class="share-block  d-flex justify-content-between align-items-center border-top border-bottom mt-5">
+            <div class="post-tags">
+                <span>Tags</span>
+                <a href="post-category-2.html">Health</a>
+                <a href="post-category-2.html">Astronomy</a>
+                <a href="post-category-2.html">Energy</a>
+            </div>
+        </div>  -->
+
+    </div>
+</div>
+                
+                <nav class="post-navigation clearfix">
+    <div class="previous-post">
+        <a href="{% url 'blog:article' article_id=next_article.article_id %}">
+            <h6 class="text-uppercase">Next</h6>
+            <h3>
+                {{next_article.article_title}}
+            </h3>
+        </a>
+    </div>
+    <div class="next-post">
+        <a href="{% url 'blog:article' article_id=previous_article.article_id %}">
+            <h6 class="text-uppercase">Previous</h6>
+            <h3>
+                {{previous_article.article_title}}
+            </h3>
+        </a>
+    </div>
+</nav>
+<!--    <div class="author-block">
+    <div class="author-thumb">
+        <img src="images/news/author-02.jpg" alt="author-image">
+    </div>
+    <div class="author-content">
+        <h3><a href="author.html">Lint Handson</a></h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit quod molestias delectus illum quisquam. 
+            Quasi iure perferendis suscipit officiis dicta!
+        </p>
+        
+    </div>
+</div> -->
+
+
+<div class="all-news-block">
+    <h3 class="news-title">
+        <span>Suggested Articles</span>
+    </h3>
+     
+     <div class="container">
+  <div class="row">
+    {% for suggested in all_suggested  %}
+    <div class="col-sm">
+        <div class="post-block-wrapper post-float-half clearfix">
+            <div class="post-thumbnail">
+                        <a href="{% url 'blog:article' article_id=suggested.suggested_url %}">
+                            <img class="img-fluid" src="{{suggested.suggested_logo}}" style="width:500px; height:150px;" alt="post-thumbnail"/>
+                        </a>
+                    </div>
+                    <div class="post-content">
+                        <a class="post-category" href="{% url 'blog:detail' category_id=suggested.suggested_category.category_id %}">{{suggested.suggested_category}}</a>
+                        <h3 class="suggested mt-3">
+                            <a href="{% url 'blog:article' article_id=suggested.suggested_url %}">{{suggested.suggested_title}}</a>
+                        </h3>
+                        <div class="post-meta">
+                            <span class="posted-time">{{suggested.suggested_date}}</span>
+                           <!-- <span class="post-author">by
+                                <a href="author.html">John Snow</a>
+                            </span>  -->
+                        </div>  
+                    </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div> 
+      </div>    
+            </div>
+
+
+			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+				<div class="sidebar">
+					<div class="widget">
+    <h3 class="news-title">
+        <span>Stay in touch</span>
+    </h3>
+
+    <ul class="list-inline social-widget">
+        <li class="list-inline-item">
+             <a href="fb.com"><img src="{% static 'blog/images/download.png' %}" alt="" height="42" width="42"></a> 
+        </li>
+        <li class="list-inline-item">
+            <a href="youtube.com"><img src="{% static 'blog/images/download1.png' %}" alt="" height="42" width="45"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="instagram.com"><img src="{% static 'blog/images/download2.png' %}" alt="" height="42" width="42"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="twitter.com"><img src="{% static 'blog/images/download3.png' %}" alt="" height="42" width="42"></a>
+        </li>
+         <li class="list-inline-item">
+            <a href="playstore.com"><img src="{% static 'blog/images/download4.png' %}" alt="" height="42" width="42"></a>
+        </li>
+        <li class="list-inline-item">
+            <a href="pintrest.com"><img src="{% static 'blog/images/download5.png' %}" alt="" height="42" width="42"></a>
+        </li>
+
+    </ul>
+</div>
+					<div class="widget">
+    <h3 class="news-title">
+        <span>Hot News</span>
+    </h3>
+
+    <div class="post-overlay-wrapper">
+        <div class="post-thumbnail">
+            <img class="img-fluid" src="{{hotnews.0.hotnews_logo}}" style="" alt="post-thumbnail"/>
+        </div>
+        <div class="post-content">
+            <a class="post-category white" href="{% url 'blog:detail' category_id=hotnews.0.hotnews_category.category_id %}">{{ hotnews.0.hotnews_category }}</a>
+            <h2 class="post-title">
+                <a href="{% url 'blog:article' article_id=hotnews.0.hotnews_url %}">{{ hotnews.0.hotnews_title }}</a>
+            </h2>
+            <div class="post-meta white">
+                <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>17 jun,2019</span>
+               <!-- <span> by </span>
+                <span class="post-author">
+                    <a href="author.html">Jammy Anderson</a>
+                </span> -->
+            </div>
+        </div>
+    </div> 
+    
+    <div class="post-list-block">
+        {% for news in all_hotnews  %}
+        <div class="post-block-wrapper post-float ">
+            <div class="post-thumbnail">
+                <a href="{% url 'blog:article' article_id=news.hotnews_url %}">
+                    <img class="img-fluid" src="{{news.hotnews_logo}}" style="" alt="post-thumbnail"/>
+                </a>
+            </div>
+            <div class="post-content">
+                <h2 class="post-title title-sm">
+                    <a href="{% url 'blog:article' article_id=news.hotnews_url %}">{{news.hotnews_title}}</a>
+                </h2>
+                <div class="post-meta">
+                    <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>{{news.hotnews_date}}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="widget mb-0">
+    <h3 class="news-title">
+        <span>Technology Blog</span>
+    </h3>
+    
+        {% for tech in all_tech  %}
+            <div class="post-overlay-wrapper clearfix mt-3">
+                <div class="post-thumbnail">
+                    <a href="{% url 'blog:article' article_id=tech.tech_url %}">
+                        <img class="img-fluid" src="{{tech.tech_logo}}" style="" alt="post-thumbnail"/>
+                    </a>
+                </div>
+                <div class="post-content">
+                <!--    <a class="post-category white" href="post-category-2.html">{{tech.tech_category}}</a> -->
+                    <h2 class="post-title">
+                        <a href="{% url 'blog:article' article_id=tech.tech_url %}">{{tech.tech_title}}</a>
+                    </h2>
+                    <div class="post-meta white">
+                        <span class="posted-time">{{tech.tech_date}}</span>
+                      <!--  <span> by </span>
+                        <span class="post-author">
+                            <a href="author.html">{{tech.tech_author}}</a>
+                        </span> -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    
+</div>
+</div>
+                
+</div>
+</div>
+
+
+{% endblock %}

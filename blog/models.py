@@ -65,6 +65,7 @@ class Article(models.Model):
     article_id = models.IntegerField(primary_key=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     article_text = models.TextField(blank=True, null=True)
+    article_text2 = models.TextField(blank=True, null=True)
     article_title = models.CharField(max_length=500)
     article_logo = models.CharField(max_length=500)
     author = models.CharField(max_length=500)

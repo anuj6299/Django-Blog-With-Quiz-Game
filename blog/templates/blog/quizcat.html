@@ -9,6 +9,14 @@
 
 <div class="container">
     <div class="row">
+      <div class="col-sm">
+        <a href="{% url 'blog:sets' category_name=all_category.11.category_name%}"> 
+          <div class="card-counter kids">
+            <i class="fas fa-child"></i>
+           <span class="count-numbers">KIDS Special</span>
+           <span class="count-name"> </span>
+         </div> </a>
+       </div>
     <div class="col-sm">
      <a href="{% url 'blog:sets' category_name=all_category.0.category_name%}"> 
        <div class="card-counter astronomy">
@@ -25,14 +33,7 @@
         <span class="count-name"> </span>
       </div> </a>
     </div>
-    <div class="col-sm">
-      <a href="{% url 'blog:sets' category_name=all_category.2.category_name%}">
-      <div class="card-counter physics">
-        <i class="fas fa-magnet"></i>
-        <span class="count-numbers">General Physics</span>
-        <span class="count-name"> </span>
-      </div> </a>
-    </div>
+    
   </div>
 
   <div class="row">
@@ -53,13 +54,14 @@
       </div></a>
     </div> -->
     <div class="col-sm">
-      <a href="{% url 'blog:sets' category_name=all_category.6.category_name%}">
-      <div class="card-counter zoology">
-        <i class="fas fa-spider"></i>
-        <span class="count-numbers">Zoology</span>
+      <a href="{% url 'blog:sets' category_name=all_category.2.category_name%}">
+      <div class="card-counter physics">
+        <i class="fas fa-magnet"></i>
+        <span class="count-numbers">General Physics</span>
         <span class="count-name"> </span>
-      </div></a>
+      </div> </a>
     </div>
+    
     <div class="col-sm">
       <a href="{% url 'blog:sets' category_name=all_category.3.category_name%}">
       <div class="card-counter quantum">
@@ -87,6 +89,14 @@
         <span class="count-name"> </span>
       </div> </a>
     </div>
+    <div class="col-sm">
+      <a href="{% url 'blog:sets' category_name=all_category.6.category_name%}">
+      <div class="card-counter zoology">
+        <i class="fas fa-spider"></i>
+        <span class="count-numbers">Zoology</span>
+        <span class="count-name"> </span>
+      </div></a>
+    </div>
    <!-- <div class="col-sm">
       <a href="{% url 'blog:sets' category_name=all_category.9.category_name%}">
       <div class="card-counter nanotechnology">
@@ -104,9 +114,7 @@
       </div> </a>
     </div>
 
-    <div class="col-sm">
-    </div>
-    
+  
 
   </div>
 

@@ -9,3 +9,5 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = "__all__"
+
+    variable = 'Mysterious Science | Contact Us'

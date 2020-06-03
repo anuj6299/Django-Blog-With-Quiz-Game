@@ -2,10 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Category, Trending, Hotnews, Editor, Tech, Article, Suggested, Sets
 from .forms import FeedbackForm
 
-
-
  
 def contact(request):
+    variable = 'Mysterious Science'
     trending = []
     for i in range(1,5):
         trending.append(Trending.objects.get(trending_id=i))
@@ -28,7 +27,8 @@ def contact(request):
         'hotnews' : hotnews,
         'all_hotnews' : all_hotnews,
         'all_editor' : all_editor,
-        'all_tech' : all_tech
+        'all_tech' : all_tech,
+        'variable' : variable,
         
     }
     if request.method == 'POST':
@@ -43,6 +43,7 @@ def contact(request):
 
 
 def index(request):
+    variable = 'Mysterious Science'
 
     trending = []
     for i in range(1,5):
@@ -66,13 +67,14 @@ def index(request):
         'hotnews' : hotnews,
         'all_hotnews' : all_hotnews,
         'all_editor' : all_editor,
-        'all_tech' : all_tech
-        
+        'all_tech' : all_tech,
+        'variable' : variable
     }
     return render(request, 'blog/index.html', context )
 
 
 def category(request):
+    variable = 'Mysterious SCience'
     all_hotnews = []
     hotnews = []
     hotnews.append(Hotnews.objects.get(hotnews_id=1))
@@ -97,6 +99,7 @@ def category(request):
         'all_tech' : all_tech,
         'all_article' : all_article,
         'article1' : article1,
+        'variable' : variable
     }
     return render(request, 'blog/category.html', context )
 
@@ -104,6 +107,7 @@ def category(request):
 
 def detail(request, category_id):
     category = Category.objects.get(category_id=category_id)
+    variable = 'Mysterious Science | ' + category.category_name
     
     all_hotnews = []
     hotnews = []
@@ -124,22 +128,25 @@ def detail(request, category_id):
         'all_editor' : all_editor,
         'all_tech' : all_tech,
         'category': category,
+        'variable' : variable
         
     }
 
     return render(request, 'blog/detail.html', context)
 
-def article(request, article_id):
-    article = Article.objects.get(article_id=article_id)
-    if article_id == 1:
+def article(request, article_title):
+    article = Article.objects.get(article_title=article_title)
+    variable = article.article_title + ' | Mysterious Science'
+
+    if article.article_id == 1:
         nid = 7
         pid = 6
-    elif article_id == 2:
+    elif article.article_id == 2:
         nid = 9
         pid = 8
     else:
-        nid = article_id -1
-        pid = article_id -2
+        nid = article.article_id -1
+        pid = article.article_id -2
     next_article = Article.objects.get(article_id = nid)
     previous_article = Article.objects.get(article_id = pid)
 
@@ -160,16 +167,19 @@ def article(request, article_id):
         'all_hotnews' : all_hotnews,
         'all_tech' : all_tech,
         'all_suggested' : all_suggested,
+        'variable' : variable
     }
     return render(request, 'blog/article.html', context )
 
     
 def quizcat(request):
+    variable = 'Mysterious Science - Quizzes'
 
     all_category = Category.objects.all()
     
     context = {
-        'all_category' : all_category,        
+        'all_category' : all_category,  
+        'variable' : variable      
     }
     return render(request, 'blog/quizcat.html', context )
 
@@ -178,19 +188,23 @@ def sets(request,category_name):
     category = Category.objects.get(category_name=category_name)
     all_category = Category.objects.all()
     all_set = Sets.objects.all()
+
+    variable = 'Mysterious Science - Quizzes | '+category.category_name
     
     context = {
         'all_category' : all_category,
         'category' : category,    
-        'all_set' : all_set,   
+        'all_set' : all_set, 
+        'variable' : variable  
     }
     return render(request, 'blog/sets.html', context )
 
     
 def quiz(request,set_id):
-
     all_category = Category.objects.all()
     set_info = Sets.objects.get(set_id = set_id)
+    variable = 'Mysterious Science | Quiz on ' + set_info.set_topic
+
     if set_id == Sets.objects.all().count():
         next_id = 1
     else:
@@ -199,6 +213,7 @@ def quiz(request,set_id):
     context = {
         'all_category' : all_category,
         'set_info' : set_info, 
-        'next_id' : next_id,   
+        'next_id' : next_id, 
+        'variable' : variable  
     }
     return render(request, 'blog/quiz.html', context )

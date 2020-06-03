@@ -9,6 +9,15 @@ body{
 .mb-5, .my-5 {
   margin-bottom: 1rem !important;
 }
+
+.suggestpad {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.padb {
+  padding-bottom: 20px;
+}
 /*------------------------------------------------------------------
 [TABLE OF CONTENTS]
 
@@ -84,7 +93,7 @@ body{
 body, p {
   font-family: "Libre Franklin", sans-serif;
   line-height: 26px;
-  font-size: 14px;
+  font-size: 16px;
   text-rendering: optimizeLegibility;
   color: #666;
   font-weight: 400;
@@ -902,7 +911,7 @@ a.post-category {
   letter-spacing: 1px;
   background: #eee;
   padding: 4px 8px;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-bottom: 10px;
   display: inline-block;
   transition: all .3s ease-in-out;
@@ -1071,7 +1080,7 @@ a.post-category.absolute {
 }
 
 .post-block-wrapper .post-category {
-  top: 10px;
+  top: 0px;
 }
 
 .post-block-wrapper .post-content .post-meta {
@@ -1091,6 +1100,7 @@ a.post-category.absolute {
 .post-block-wrapper.post-float {
   display: -webkit-flex;
   display: flex;
+  padding: 2px;
 }
 
 .post-block-wrapper.post-float .post-thumbnail {
@@ -1118,7 +1128,7 @@ a.post-category.absolute {
 }
 
 .block-wrapper {
-  padding: 20px 0px 70px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .post-block-wrapper.post-float-half .post-thumbnail {

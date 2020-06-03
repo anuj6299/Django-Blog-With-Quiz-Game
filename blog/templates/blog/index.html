@@ -13,7 +13,7 @@
                         <div class="post-content">
                             <a href="{% url 'blog:detail' category_id=trending.1.trending_category.category_id %}" class="post-cat bg-primary">{{ trending.1.trending_category }}</a>
                             <h2 class="slider-post-title">
-                                <a href="article/{{ trending.1.trending_url }}">{{ trending.1.trending_title }}</a>
+                                <a href="{% url 'blog:article' article_title=trending.1.trending_title %}">{{ trending.1.trending_title }}</a>
                             </h2>
                            <!-- <div class="post-meta mt-2">
                                 <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{ trending.1.trending_date }}</span>
@@ -33,7 +33,7 @@
                         <div class="post-content">
                             <a href="{% url 'blog:detail' category_id=trending.2.trending_category.category_id %}" class="post-cat bg-danger">{{trending.2.trending_category}}</a>
                             <h2 class="slider-post-title">
-                                <a href="article/{{ trending.1.trending_url }}">{{trending.2.trending_title}}</a>
+                                <a href="{% url 'blog:article' article_title=trending.2.trending_title %}">{{trending.2.trending_title}}</a>
                             </h2>
                          <!--   <div class="post-meta mt-2">
                                 <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.2.trending_date}}</span>
@@ -55,7 +55,7 @@
                             <div class="post-content">
                                 <a href="{% url 'blog:detail' category_id=trending.3.trending_category.category_id %}" class="post-cat bg-success">{{trending.3.trending_category}}</a>
                                 <h2 class="post-title">
-                                    <a href="article/{{ trending.1.trending_url }}">{{trending.3.trending_title}}</a>
+                                    <a href="{% url 'blog:article' article_title=trending.3.trending_title %}">{{trending.3.trending_title}}</a>
                                 </h2>
                             <!--    <div class="post-meta mt-2">
                                     <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.3.trending_date}}</span>
@@ -72,7 +72,7 @@
                             <div class="post-content">
                                 <a href="{% url 'blog:detail' category_id=trending.0.trending_category.category_id %}" class="post-cat bg-info">{{trending.0.trending_category}}</a>
                                 <h2 class="post-title">
-                                    <a href="article/{{ trending.1.trending_url }}">{{trending.0.trending_title}}</a>
+                                    <a href="{% url 'blog:article' article_title=trending.0.trending_title %}">{{trending.0.trending_title}}</a>
                                 </h2>
                               <!--  <div class="post-meta mt-2">
                                     <span class="posted-time"><i class="fa fa-clock-o mr-2 text-danger"></i>{{trending.0.trending_date}}</span>
@@ -107,16 +107,17 @@
             {% for editor in all_editor %}
 
         	<div class="col-lg-6 col-md-6">
+                <div class="padb">
                 <div class="post-block-wrapper post-float-half clearfix">
                     <div class="post-thumbnail">
-                        <a href="article/{{ editor.editor_url }}">
+                        <a href="{% url 'blog:article' article_title=editor.editor_title %}">
                             <img class="img-fluid" src="{{editor.editor_logo}}" style="width:500px; height:250px;" alt="post-thumbnail"  />
                         </a>
                     </div>
                     <div class="post-content">
-                        <a class="post-category" href="{% url 'blog:category' %}">{{editor.editor_category}}</a>
-                        <h2 class="post-title mt-3">
-                            <a href="article/{{ editor.editor_url }}">{{editor.editor_title}}</a>
+                        <a class="post-category" href="{% url 'blog:detail' category_id=editor.editor_category.category_id %}">{{editor.editor_category}}</a>
+                        <h2 class="post-title">
+                            <a href="{% url 'blog:article' article_title=editor.editor_title %}">{{editor.editor_title}}</a>
                         </h2>
                        <!-- <div class="post-meta">
                             <span class="posted-time">an hour ago</span>
@@ -129,7 +130,7 @@
                         </p> 
                     </div>
                 </div>
-            </div>
+            </div> </div>
 
             {% endfor %}
                 
@@ -137,9 +138,9 @@
     </div>			
             </div></div>
             
-			<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 				<div class="sidebar">
-<div class="widget">
+					<div class="widget">
     <h3 class="news-title">
         <span>Stay in touch</span>
     </h3>
@@ -155,15 +156,14 @@
             <a href="https://instagram.com/mysterious.science"><img src="{% static 'blog/images/download2.png' %}" alt="" height="42" width="42"></a>
         </li>
         <li class="list-inline-item">
-            <a href="https://twitter.com/mysterious.science"><img src="{% static 'blog/images/download3.png' %}" alt="" height="42" width="42"></a>
+            <a href="https://twitter.com/mysterioussci"><img src="{% static 'blog/images/download3.png' %}" alt="" height="42" width="42"></a>
         </li>
          <li class="list-inline-item">
-            <a href="playstore.com"><img src="{% static 'blog/images/download4.png' %}" alt="" height="42" width="42"></a>
+            <a href="https://play.google.com/store"><img src="{% static 'blog/images/download4.png' %}" alt="" height="42" width="42"></a>
         </li>
         <li class="list-inline-item">
-            <a href="pintrest.com"><img src="{% static 'blog/images/download5.png' %}" alt="" height="42" width="42"></a>
+            <a href="https://in.pinterest.com/mysterious_science/"><img src="{% static 'blog/images/download5.png' %}" alt="" height="42" width="42"></a>
         </li>
-
     </ul>
 </div>
 					<div class="widget">
@@ -173,12 +173,12 @@
 
     <div class="post-overlay-wrapper">
         <div class="post-thumbnail">
-                <img class="img-fluid" src="{{hotnews.0.hotnews_logo}}" alt="post-thumbnail"/>
+            <img class="img-fluid" src="{{hotnews.0.hotnews_logo}}" style="" alt="post-thumbnail"/>
         </div>
         <div class="post-content">
             <a class="post-category white" href="{% url 'blog:detail' category_id=hotnews.0.hotnews_category.category_id %}">{{ hotnews.0.hotnews_category }}</a>
             <h2 class="post-title">
-                <a href="{% url 'blog:article' article_id=hotnews.0.hotnews_url %}">{{ hotnews.0.hotnews_title }}</a>
+                <a href="{% url 'blog:article' article_title=hotnews.0.hotnews_title %}">{{ hotnews.0.hotnews_title }}</a>
             </h2>
             <div class="post-meta white">
                 <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>{{ hotnews.0.hotnews_date }}</span>
@@ -194,13 +194,13 @@
         {% for news in all_hotnews  %}
         <div class="post-block-wrapper post-float ">
             <div class="post-thumbnail">
-                <a href="{% url 'blog:article' article_id=news.hotnews_url %}">
+                <a href="{% url 'blog:article' article_title=news.hotnews_title %}">
                     <img class="img-fluid" src="{{news.hotnews_logo}}" style="" alt="post-thumbnail"/>
                 </a>
             </div>
             <div class="post-content">
                 <h2 class="post-title title-sm">
-                    <a href="{% url 'blog:article' article_id=news.hotnews_url %}">{{news.hotnews_title}}</a>
+                    <a href="{% url 'blog:article' article_title=news.hotnews_title %}">{{news.hotnews_title}}</a>
                 </h2>
                 <div class="post-meta">
                     <span class="posted-time"><i class="fa fa-clock-o mr-1"></i>{{news.hotnews_date}}</span>
@@ -220,18 +220,18 @@
         {% for tech in all_tech  %}
             <div class="post-overlay-wrapper clearfix mt-3">
                 <div class="post-thumbnail">
-                    <a href="{% url 'blog:article' article_id=tech.tech_url %}">
+                    <a href="{% url 'blog:article' article_title=tech.tech_title %}">
                         <img class="img-fluid" src="{{tech.tech_logo}}" style="" alt="post-thumbnail"/>
                     </a>
                 </div>
                 <div class="post-content">
-                   <!-- <a class="post-category white" href="post-category-2.html">{{tech.tech_category}}</a> -->
+                <!--    <a class="post-category white" href="post-category-2.html">{{tech.tech_category}}</a> -->
                     <h2 class="post-title">
-                        <a href="{% url 'blog:article' article_id=tech.tech_url %}">{{tech.tech_title}}</a>
+                        <a href="{% url 'blog:article' article_title=tech.tech_title %}">{{tech.tech_title}}</a>
                     </h2>
                     <div class="post-meta white">
                         <span class="posted-time">{{tech.tech_date}}</span>
-                       <!-- <span> by </span>
+                      <!--  <span> by </span>
                         <span class="post-author">
                             <a href="author.html">{{tech.tech_author}}</a>
                         </span> -->
@@ -241,7 +241,8 @@
             {% endfor %}
     
 </div>
-				</div>
+</div>
+                
 			</div>
 		</div>
 	</div>

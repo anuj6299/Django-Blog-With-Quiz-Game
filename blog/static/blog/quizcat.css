@@ -27,6 +27,11 @@
     display: block;
   }
 
+  .card-counter.kids{
+    background-color:   #28b463   ;
+    color: #FFF;
+  }
+
   .card-counter.astronomy{
     background-color:   #3498db  ;
     color: #FFF;
